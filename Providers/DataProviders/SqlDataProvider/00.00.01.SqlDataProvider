@@ -1,0 +1,63 @@
+﻿/************************************************************/
+/*****              SqlDataProvider                     *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/***** Note: To manually execute this script you must   *****/
+/*****       perform a search and replace operation     *****/
+/*****       for {databaseOwner} and {objectQualifier}  *****/
+/*****                                                  *****/
+/************************************************************/
+
+/** Create Item Table **/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}LD2_Auction_Item]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}LD2_Auction_Item]
+GO
+
+CREATE TABLE {databaseOwner}{objectQualifier}LD2_Auction_Item
+    (
+    ItemId int NOT NULL IDENTITY (1, 1),
+	ItemTitle nvarchar(MAX) NOT NULL,
+	ItemStartingPrice int NOT NULL,
+	ItemCreationDate datetime NOT NULL
+    )  ON [PRIMARY]
+     TEXTIMAGE_ON [PRIMARY]
+GO
+
+ALTER TABLE {databaseOwner}{objectQualifier}LD2_Auction_Item ADD CONSTRAINT
+    PK_{objectQualifier}LD2_Auction_Item PRIMARY KEY CLUSTERED 
+    (
+    ItemId
+    ) WITH( STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+
+GO
+
+
+/** Create Auction Table **/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}LD2_Auction_Auction]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}LD2_Auction_Auction]
+GO
+
+CREATE TABLE {databaseOwner}{objectQualifier}LD2_Auction_Auction
+    (
+    ItemId int NOT NULL IDENTITY (1, 1),
+	CurrentPrice int NOT NULL,
+	NumOfBids int NOT NULL,
+	AuctionStart datetime NOT NULL,
+	AuctionEnd datetime NOT NULL,
+	HighestBidderUserId int NULL
+    )  ON [PRIMARY]
+     TEXTIMAGE_ON [PRIMARY]
+GO
+
+ALTER TABLE {databaseOwner}{objectQualifier}LD2_Auction_Auction ADD CONSTRAINT
+    PK_{objectQualifier}LD2_Auction_Auction PRIMARY KEY CLUSTERED 
+    (
+    ItemId
+    ) WITH( STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+
+GO
+
+
+/************************************************************/
+/*****              SqlDataProvider                     *****/
+/************************************************************/
