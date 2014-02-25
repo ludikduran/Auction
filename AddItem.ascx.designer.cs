@@ -10,24 +10,33 @@
 namespace LD2.Auction {
     
     
-    public partial class View {
+    public partial class AddItem {
         
         /// <summary>
-        /// gvItems control.
+        /// lblTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvItems;
+        protected global::DotNetNuke.UI.UserControls.LabelControl lblTitle;
         
         /// <summary>
-        /// btnAddItem control.
+        /// btnSubmit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddItem;
+        protected global::System.Web.UI.WebControls.LinkButton btnSubmit;
+        
+        /// <summary>
+        /// btnCancel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnCancel;
     }
 }

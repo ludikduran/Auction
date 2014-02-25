@@ -2,3 +2,5 @@
 
 <asp:GridView ID="gvItems" runat="server" >
 </asp:GridView>
+
+<asp:Button ID="btnAddItem" runat="server" OnClick="btnAddItem_Click" />

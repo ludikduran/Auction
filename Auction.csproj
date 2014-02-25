@@ -67,6 +67,13 @@
     <Reference Include="System.Web.ApplicationServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddItem.ascx.cs">
+      <DependentUpon>AddItem.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddItem.ascx.designer.cs">
+      <DependentUpon>AddItem.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Components\Auction.cs" />
     <Compile Include="Components\AuctionController.cs" />
     <Compile Include="Components\FeatureController.cs" />
@@ -88,6 +95,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddItem.ascx" />
     <Content Include="License.txt" />
     <Content Include="module.css" />
     <Content Include="ReleaseNotes.txt" />

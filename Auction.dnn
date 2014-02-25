@@ -92,7 +92,7 @@
         <component type="Assembly">
           <assemblies>
             <assembly>
-              <name>Auction.dll</name>
+              <name>LD2.Auction.dll</name>
               <path>bin</path>
             </assembly>
           </assemblies>
