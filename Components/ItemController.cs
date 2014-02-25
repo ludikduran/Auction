@@ -22,8 +22,8 @@ namespace LD2.Auction.Components
             IEnumerable<Item> x;
             using (IDataContext ctx = DataContext.Instance())
             {
-                var rep = ctx.GetRepository<Item>();
-                x = rep.Get();
+                string sql = "SELECT * FROM LD2_Auction_Item AS item LEFT JOIN LD2_Auction_Auction AS auction ON item.ItemId = auction.ItemId GROUP BY item.ItemId";
+                x = ctx.ExecuteQuery<Item>(System.Data.CommandType.Text, sql);                
             }
             return x;
         }
@@ -36,6 +36,7 @@ namespace LD2.Auction.Components
             {
                 var rep = ctx.GetRepository<Item>();
                 x = rep.GetById(itemId);
+                
             }
             return x;
         }
@@ -47,6 +48,7 @@ namespace LD2.Auction.Components
             {
                 var rep = ctx.GetRepository<Item>();
                 rep.Update(i);
+
             }
         }
 
